@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-swipe-container',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./swipe-container.component.scss']
 })
 export class SwipeContainerComponent implements OnInit {
-
+  @Input() items: any[];
   constructor() { }
 
   ngOnInit(): void {

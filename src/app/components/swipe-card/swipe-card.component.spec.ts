@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwipeCardsComponent } from './swipe-cards.component';
+import { SwipeCardsComponent } from './swipe-card.component';
 
 describe('SwipeCardsComponent', () => {
   let component: SwipeCardsComponent;

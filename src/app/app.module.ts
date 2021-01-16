@@ -4,17 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SwipeContainerComponent } from './components/swipe-container/swipe-container.component';
-import { SwipeCardsComponent } from './components/swipe-cards/swipe-cards.component';
+import { SwipeCardComponent } from './components/swipe-card/swipe-card.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     SwipeContainerComponent,
-    SwipeCardsComponent
+    SwipeCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
