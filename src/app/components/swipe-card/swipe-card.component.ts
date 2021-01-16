@@ -14,8 +14,9 @@ export class SwipeCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleDrop(): void {
-    console.log(this.card.nativeElement.style);
-    this.card.nativeElement.style.transform=null;
+  onDragEnded(event): void {
+    event.source.element.nativeElement.style.transform = 'none';
+    const source: any = event.source;
+    source._dragRef.reset();
   }
 }
