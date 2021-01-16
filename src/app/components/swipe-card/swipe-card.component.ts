@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-swipe-card',
@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./swipe-card.component.scss']
 })
 export class SwipeCardComponent implements OnInit {
+  @ViewChild('card') card; 
   @Input() data: any;
   @Input() index: number;
   constructor() { }
@@ -13,7 +14,8 @@ export class SwipeCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calcZIndex(): any {
-    return { "z-index": this.index * - 1 }
+  handleDrop(): void {
+    console.log(this.card.nativeElement.style);
+    this.card.nativeElement.style.transform=null;
   }
 }
