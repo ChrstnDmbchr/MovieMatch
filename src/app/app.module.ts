@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SwipeContainerComponent } from './components/swipe-container/swipe-container.component';
 import { SwipeCardComponent } from './components/swipe-card/swipe-card.component';
 import { MaterialModule } from './modules/material-module';
+
+import { MovieService } from './services/movie.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { MaterialModule } from './modules/material-module';
     AppRoutingModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    MovieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
