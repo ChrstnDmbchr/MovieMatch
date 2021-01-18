@@ -4,19 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SwipeContainerComponent } from './components/swipe-container/swipe-container.component';
-import { SwipeCardsComponent } from './components/swipe-cards/swipe-cards.component';
+import { SwipeCardComponent } from './components/swipe-card/swipe-card.component';
+import { MaterialModule } from './modules/material-module';
 
+import { MovieService } from './services/movie.service';
 @NgModule({
   declarations: [
     AppComponent,
     SwipeContainerComponent,
-    SwipeCardsComponent
+    SwipeCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [
+    MovieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
