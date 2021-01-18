@@ -1,3 +1,10 @@
-<div #card class="card" (cdkDragEnded)="onDragEnded($event)" cdkDrag>
+<div 
+  #card 
+  class="card"
+  cdkDrag
+  (cdkDragEnded)="onDragEnded($event)" 
+  (cdkDragStarted)="handleDragStart($event)"
+  (cdkDragReleased)="handleDragDrop($event)"
+>
   {{ data }}
 </div>
