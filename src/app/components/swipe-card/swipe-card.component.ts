@@ -15,6 +15,11 @@ export class SwipeCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public applyZIndex(): any {
+    return {
+      "z-index": this.index * -1,
+    }
+  }
   public onDragEnded(event): void {
     event.source.element.nativeElement.style.transform = 'none';
     const source: any = event.source;
