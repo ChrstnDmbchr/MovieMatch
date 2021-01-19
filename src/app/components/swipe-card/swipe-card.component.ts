@@ -54,6 +54,6 @@ export class SwipeCardComponent implements OnInit {
     this._clearTop();
   }
   private _clearTop(): void {
-    this.movieService.clearTopCard();
+    this.movieService.clearTopMovie();
   }
 }
