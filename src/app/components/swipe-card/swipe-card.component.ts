@@ -1,16 +1,17 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-const SWIPE_THRESHOLD = 100;
+import { MovieService } from '../../services/movie.service';
+const SWIPE_THRESHOLD = 150;
 @Component({
   selector: 'app-swipe-card',
   templateUrl: './swipe-card.component.html',
   styleUrls: ['./swipe-card.component.scss']
 })
 export class SwipeCardComponent implements OnInit {
-  @ViewChild('card') card; 
+  @ViewChild('card') card;
   @Input() data: any;
   @Input() index: number;
-  xPosition: number;
-  constructor() { }
+  startLeftPosition: number;
+  constructor(public movieService: MovieService) { }
 
   ngOnInit(): void {
   }
@@ -20,21 +21,34 @@ export class SwipeCardComponent implements OnInit {
     source._dragRef.reset();
   }
   public handleDragStart(event): void {
-    this.xPosition = this._calcXPosition();
-    console.log(this.xPosition);
+    this.startLeftPosition = this._calcXPosition();
   }
   public handleDragDrop(event): void {
-    const x = this._calcXPosition();
-    // logic to determine left / right past threshold then trigger private swipe functions
+    if (this._passedLeftBoundry()) {
+      this._triggerLeftSwipe();
+    } else if (this._passedRightBoundry()) {
+      this._triggerRightSwipe();
+    }
+  }
+  private _passedLeftBoundry(): boolean {
+    return this._calcXPosition() < (this.startLeftPosition - SWIPE_THRESHOLD);
+  }
+  private _passedRightBoundry(): boolean {
+    return this._calcXPosition() > (this.startLeftPosition + SWIPE_THRESHOLD);
   }
   private _calcXPosition(): number {
     const rect = this.card.nativeElement.getBoundingClientRect();
     return rect.x;
   }
-  private _triggerLeftSwipe() {
-
+  private _triggerLeftSwipe(): void {
+    console.log("LEFT THRESHOLD DROP TIGGERED");
+    this._clearTop();
   }
-  private _triggerRightSwipe() {
-    
+  private _triggerRightSwipe(): void {
+    console.log("RIGHT THRESHOLD DROP TIGGERED");
+    this._clearTop();
+  }
+  private _clearTop(): void {
+    this.movieService.clearTopCard();
   }
 }
