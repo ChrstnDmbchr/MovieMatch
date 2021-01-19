@@ -9,7 +9,7 @@ export class MovieService {
   constructor() { 
     this.movieList.next(['1', '2', '3', '4', '5']);
   }
-  public clearTopCard(): void {
+  public clearTopMovie(): void {
     this.movieList.next(this.movieList.value.slice(1));
   }
 }
