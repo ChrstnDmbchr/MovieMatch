@@ -1,3 +1,5 @@
 <div class="swipe-container">
-  <app-swipe-card *ngFor="let item of movies; let i = index" [data]="item" [index]="i"></app-swipe-card>
+  <div class="swipe-container__boundry">
+    <app-swipe-card *ngFor="let item of movies; let i = index" [data]="item" [index]="i"></app-swipe-card>
+  </div>
 </div>

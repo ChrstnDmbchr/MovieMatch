@@ -7,7 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 export class MovieService {
   public movieList = new BehaviorSubject(null);
   constructor() { 
-    // temp
     this.movieList.next(['1', '2', '3', '4', '5']);
+  }
+  public clearTopMovie(): void {
+    this.movieList.next(this.movieList.value.slice(1));
   }
 }

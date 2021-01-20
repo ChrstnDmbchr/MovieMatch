@@ -2,5 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.swipe-container__boundry {
   position: relative;
+  width: 700px;
+  height: 350px;
 }
