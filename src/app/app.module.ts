@@ -8,11 +8,13 @@ import { SwipeCardComponent } from './components/swipe-card/swipe-card.component
 import { MaterialModule } from './modules/material-module';
 
 import { MovieService } from './services/movie.service';
+import { NavTabsComponent } from './components/nav-tabs/nav-tabs.component';
 @NgModule({
   declarations: [
     AppComponent,
     SwipeContainerComponent,
-    SwipeCardComponent
+    SwipeCardComponent,
+    NavTabsComponent
   ],
   imports: [
     BrowserModule,
